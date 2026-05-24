@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://qp3ativ5aq3y"]
+
+[ext_resource type="Script" uid="uid://b3cnrjxtvcmai" path="res://Mundo.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://0csu8n5f4n84" path="res://arts/Jardin_panoramica_teste.jpg" id="2_5yunf"]
+[ext_resource type="Texture2D" uid="uid://b14dto5b2j5m2" path="res://arts/Bacia_teste.png" id="3_drrim"]
+[ext_resource type="Texture2D" uid="uid://byso6ievuktvj" path="res://arts/Pineu_teste.png" id="4_as70k"]
+[ext_resource type="Texture2D" uid="uid://ntdrkb7cimss" path="res://arts/Seta_teste.png" id="5_jlv7k"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(154, 95)
+
+[node name="Mundo" type="Node2D" unique_id=1371233584]
+position = Vector2(924, 304)
+script = ExtResource("1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=824084064]
+position = Vector2(-344.5, 58)
+scale = Vector2(0.72562504, 0.8067416)
+texture = ExtResource("2_5yunf")
+
+[node name="Obj01" type="Area2D" parent="." unique_id=476516993]
+position = Vector2(-462, 179)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Obj01" unique_id=853572066]
+scale = Vector2(0.12031252, 0.1187649)
+texture = ExtResource("3_drrim")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obj01" unique_id=1504511153]
+position = Vector2(0, -1.5)
+shape = SubResource("1")
+
+[node name="Obj02" type="Area2D" parent="." unique_id=1832507188]
+position = Vector2(75, 175)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Obj02" unique_id=913344732]
+scale = Vector2(0.12187493, 0.1140143)
+texture = ExtResource("3_drrim")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obj02" unique_id=436433932]
+position = Vector2(0, -1.5)
+shape = SubResource("1")
+
+[node name="Obj03" type="Area2D" parent="." unique_id=1939236785]
+position = Vector2(-667, 266)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Obj03" unique_id=236403342]
+position = Vector2(3.2499924, -1.5000238)
+scale = Vector2(0.1630109, 0.15816331)
+texture = ExtResource("4_as70k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obj03" unique_id=2031447520]
+position = Vector2(9, 17.5)
+shape = SubResource("1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1861577261]
+
+[node name="LabelFinal" type="Label" parent="CanvasLayer" unique_id=417411116]
+offset_left = 470.0
+offset_top = 269.0
+offset_right = 562.0
+offset_bottom = 283.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+
+[node name="LabelCliques" type="Label" parent="CanvasLayer" unique_id=707652465]
+offset_left = 17.0
+offset_top = 21.0
+offset_right = 57.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 20
+
+[node name="LabelObjetos" type="Label" parent="CanvasLayer" unique_id=4752750]
+offset_left = 18.0
+offset_top = 94.0
+offset_right = 58.0
+offset_bottom = 117.0
+theme_override_font_sizes/font_size = 20
+
+[node name="BotaoTerminar" type="TextureButton" parent="CanvasLayer" unique_id=1089804032]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 358.99994
+offset_top = 17.0
+offset_right = 2279.0
+offset_bottom = 1097.0
+grow_horizontal = 2
+scale = Vector2(0.11, 0.11)
+texture_normal = ExtResource("5_jlv7k")
+
+[node name="Label" type="Label" parent="CanvasLayer/BotaoTerminar" unique_id=74074290]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1141.8174
+offset_top = -203.63635
+offset_right = 873.1826
+offset_bottom = 205.36365
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 200
+text = "Terminar fase"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="input_event" from="Obj01" to="." method="_on_Chave_input_event"]
+[connection signal="input_event" from="Obj02" to="." method="_on_Chave2_input_event"]
+[connection signal="input_event" from="Obj03" to="." method="_on_Chave3_input_event"]
+[connection signal="pressed" from="CanvasLayer/BotaoTerminar" to="." method="_on_BotaoTerminar_pressed"]
