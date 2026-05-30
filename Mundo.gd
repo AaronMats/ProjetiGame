@@ -11,12 +11,17 @@ var fase_encerrada = false
 @onready var label_objetos = $CanvasLayer/LabelObjetos
 @onready var label_final = $CanvasLayer/LabelFinal
 @onready var botao_terminar = $CanvasLayer/BotaoTerminar
+@onready var botao_teste = $Button
+@onready var botao_teste2 = $Button2
 
 func _ready():
 	# Configuração inicial do texto na tela
 	label_cliques.text = "Cliques: 0"
 	label_objetos.text = "Objetos Achados: 0"
 	label_final.text = ""
+	botao_terminar.visible = true
+	botao_teste.visible = false
+	botao_teste2.visible = false
 
 # --- DETECTOR DE CLIQUES GERAIS NO CENÁRIO ---
 # Esta função roda sempre que QUALQUER clique acontece na tela
@@ -41,13 +46,17 @@ func _input(event):
 func objeto_clicado(nome_do_objeto):
 	if fase_encerrada:
 		return
-		
-	# 1. Contabiliza o objeto achado e atualiza a interface
+	
+	# Contabiliza o objeto achado e atualiza a interface	
 	objetos_encontrados += 1
 	label_objetos.text = "Objetos Achados: " + str(objetos_encontrados)
 	
-	# 2. Pega o objeto clicado
 	var objeto = get_node(nome_do_objeto)
+
+	# ✅ Desabilita a colisão imediatamente para não registrar cliques duplos
+	for filho in objeto.get_children():
+		if filho is CollisionShape2D:
+			filho.set_deferred("disabled", true)
 	
 	# Garante que o objeto fique na frente de tudo na tela durante a animação
 	if objeto is Node2D:
@@ -105,9 +114,17 @@ func _on_BotaoTerminar_pressed():
 	fase_encerrada = true
 
 	
-	# Conta matemática para descobrir a porcentagem de acerto
-	# Usamos float() para a divisão aceitar números quebrados antes de multiplicar por 100
-	var pontuacao = (float(objetos_encontrados) / float(total_objetos_fase)) * 100
+	# Cliques que não acertaram nenhum objeto
+	var cliques_errados = total_cliques - objetos_encontrados
+	var pontuacao
+	# Porcentagem de acerto baseada em todos os cliques dados
+	if total_cliques == 0:
+		pontuacao = 0.0
+	else:
+		pontuacao = (float(objetos_encontrados) / float(total_objetos_fase)) * (float(objetos_encontrados) / float(total_cliques)) * 100.0
+
+	# Garante que nunca saia do intervalo 0-100
+	pontuacao = clamp(pontuacao, 0.0, 100.0)
 	
 	# Esconde o botão para o jogador não clicar de novo
 	botao_terminar.visible = false
@@ -116,3 +133,13 @@ func _on_BotaoTerminar_pressed():
 	label_final.text = "--- FIM DE JOGO ---\n"
 	label_final.text += "Pontuação Final: " + str(int(pontuacao)) + "%\n"
 	label_final.text += "Total de Cliques: " + str(total_cliques)
+	
+	botao_teste.visible = true
+	botao_teste2.visible = true
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://seletor_fases.tscn")
+
+
+func _on_button_2_pressed() -> void:
+	get_tree().change_scene_to_file("res://Mundo.tscn")

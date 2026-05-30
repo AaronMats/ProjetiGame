@@ -58,12 +58,14 @@ shape = SubResource("1")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1861577261]
 
 [node name="LabelFinal" type="Label" parent="CanvasLayer" unique_id=417411116]
-offset_left = 470.0
-offset_top = 269.0
-offset_right = 562.0
-offset_bottom = 283.0
+offset_left = 1.0
+offset_top = 12.0
+offset_right = 1159.0
+offset_bottom = 648.0
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="LabelCliques" type="Label" parent="CanvasLayer" unique_id=707652465]
 offset_left = 17.0
@@ -109,7 +111,25 @@ text = "Terminar fase"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Button" type="Button" parent="." unique_id=2143496525]
+offset_left = -907.0
+offset_top = 260.0
+offset_right = -749.0
+offset_bottom = 337.0
+text = "Voltar
+Para 
+Seletor de fases"
+
+[node name="Button2" type="Button" parent="." unique_id=1195899141]
+offset_left = 62.0
+offset_top = 257.0
+offset_right = 220.0
+offset_bottom = 334.0
+text = "PROXIMA FASE"
+
 [connection signal="input_event" from="Obj01" to="." method="_on_Chave_input_event"]
 [connection signal="input_event" from="Obj02" to="." method="_on_Chave2_input_event"]
 [connection signal="input_event" from="Obj03" to="." method="_on_Chave3_input_event"]
 [connection signal="pressed" from="CanvasLayer/BotaoTerminar" to="." method="_on_BotaoTerminar_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
