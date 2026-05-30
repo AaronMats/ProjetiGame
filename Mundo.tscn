@@ -4,10 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://0csu8n5f4n84" path="res://arts/Jardin_panoramica_teste.jpg" id="2_5yunf"]
 [ext_resource type="Texture2D" uid="uid://b14dto5b2j5m2" path="res://arts/Bacia_teste.png" id="3_drrim"]
 [ext_resource type="Texture2D" uid="uid://byso6ievuktvj" path="res://arts/Pineu_teste.png" id="4_as70k"]
+[ext_resource type="Texture2D" uid="uid://doe8x6w6c5y00" path="res://arts/Fundo_menu_principal.png" id="5_drrim"]
 [ext_resource type="Texture2D" uid="uid://ntdrkb7cimss" path="res://arts/Seta_teste.png" id="5_jlv7k"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(154, 95)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_drrim"]
 
 [node name="Mundo" type="Node2D" unique_id=1371233584]
 position = Vector2(924, 304)
@@ -58,12 +61,24 @@ shape = SubResource("1")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1861577261]
 
 [node name="LabelFinal" type="Label" parent="CanvasLayer" unique_id=417411116]
-offset_left = 470.0
-offset_top = 269.0
-offset_right = 562.0
-offset_bottom = 283.0
+z_index = 10
+offset_left = 256.0
+offset_top = 128.0
+offset_right = 896.0
+offset_bottom = 512.0
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/LabelFinal" unique_id=352051685]
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
+self_modulate = Color(1.353256, 1.353256, 1.353256, 1)
+z_as_relative = false
+material = SubResource("CanvasItemMaterial_drrim")
+position = Vector2(320.00003, 192.5)
+scale = Vector2(0.5, 0.4683698)
+texture = ExtResource("5_drrim")
 
 [node name="LabelCliques" type="Label" parent="CanvasLayer" unique_id=707652465]
 offset_left = 17.0
@@ -109,7 +124,28 @@ text = "Terminar fase"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=2143496525]
+z_index = 10
+offset_left = 272.0
+offset_top = 424.0
+offset_right = 430.0
+offset_bottom = 501.0
+text = "Voltar
+Para 
+Seletor de fases"
+
+[node name="Button2" type="Button" parent="CanvasLayer" unique_id=1195899141]
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
+z_index = 10
+offset_left = 720.0
+offset_top = 424.0
+offset_right = 878.0
+offset_bottom = 501.0
+text = "PROXIMA FASE"
+
 [connection signal="input_event" from="Obj01" to="." method="_on_Chave_input_event"]
 [connection signal="input_event" from="Obj02" to="." method="_on_Chave2_input_event"]
 [connection signal="input_event" from="Obj03" to="." method="_on_Chave3_input_event"]
 [connection signal="pressed" from="CanvasLayer/BotaoTerminar" to="." method="_on_BotaoTerminar_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button2" to="." method="_on_button_2_pressed"]
