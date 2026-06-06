@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://byso6ievuktvj" path="res://arts/Pineu_teste.png" id="4_as70k"]
 [ext_resource type="Texture2D" uid="uid://doe8x6w6c5y00" path="res://arts/Fundo_menu_principal.png" id="5_drrim"]
 [ext_resource type="Texture2D" uid="uid://ntdrkb7cimss" path="res://arts/Seta_teste.png" id="5_jlv7k"]
+[ext_resource type="PackedScene" uid="uid://dwpbyxhqi3urb" path="res://menu_pause.tscn" id="7_as70k"]
+[ext_resource type="Texture2D" uid="uid://cf6b48tnttdfr" path="res://arts/Botao01.png" id="8_jlv7k"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(154, 95)
@@ -21,7 +23,7 @@ position = Vector2(-344.5, 58)
 scale = Vector2(0.72562504, 0.8067416)
 texture = ExtResource("2_5yunf")
 
-[node name="Obj01" type="Area2D" parent="." unique_id=476516993]
+[node name="Obj01" type="Area2D" parent="." unique_id=476516993 groups=["objetos_fase"]]
 position = Vector2(-462, 179)
 metadata/_edit_group_ = true
 
@@ -33,7 +35,7 @@ texture = ExtResource("3_drrim")
 position = Vector2(0, -1.5)
 shape = SubResource("1")
 
-[node name="Obj02" type="Area2D" parent="." unique_id=1832507188]
+[node name="Obj02" type="Area2D" parent="." unique_id=1832507188 groups=["objetos_fase"]]
 position = Vector2(75, 175)
 metadata/_edit_group_ = true
 
@@ -45,7 +47,7 @@ texture = ExtResource("3_drrim")
 position = Vector2(0, -1.5)
 shape = SubResource("1")
 
-[node name="Obj03" type="Area2D" parent="." unique_id=1939236785]
+[node name="Obj03" type="Area2D" parent="." unique_id=1939236785 groups=["objetos_fase"]]
 position = Vector2(-667, 266)
 metadata/_edit_group_ = true
 
@@ -143,9 +145,20 @@ offset_right = 878.0
 offset_bottom = 501.0
 text = "PROXIMA FASE"
 
+[node name="BotaoPausaTela" type="TextureButton" parent="CanvasLayer" unique_id=1149638758]
+process_mode = 1
+offset_right = 348.0
+offset_bottom = 220.0
+scale = Vector2(0.465, 0.465)
+texture_normal = ExtResource("8_jlv7k")
+
+[node name="MenuPause" parent="CanvasLayer" unique_id=704209692 instance=ExtResource("7_as70k")]
+visible = false
+
 [connection signal="input_event" from="Obj01" to="." method="_on_Chave_input_event"]
 [connection signal="input_event" from="Obj02" to="." method="_on_Chave2_input_event"]
 [connection signal="input_event" from="Obj03" to="." method="_on_Chave3_input_event"]
 [connection signal="pressed" from="CanvasLayer/BotaoTerminar" to="." method="_on_BotaoTerminar_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/BotaoPausaTela" to="." method="_on_botao_pausa_tela_pressed"]

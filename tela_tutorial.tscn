@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://ivqmajm6vx5q"]
+
+[ext_resource type="Script" uid="uid://c0r5h8c7gejr3" path="res://tela_tutorial.gd" id="1_kbrww"]
+[ext_resource type="Texture2D" uid="uid://dxxyyit5q7xip" path="res://arts/Tela_tutorial.jpg" id="2_pwuaq"]
+[ext_resource type="Texture2D" uid="uid://ntdrkb7cimss" path="res://arts/Seta_teste.png" id="3_d526j"]
+
+[node name="TelaTutorial" type="Control" unique_id=566203524]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kbrww")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=376014846]
+position = Vector2(578, 327)
+texture = ExtResource("2_pwuaq")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=928077978]
+layout_mode = 0
+offset_left = 896.99994
+offset_top = 507.99997
+offset_right = 2817.0
+offset_bottom = 1588.0
+scale = Vector2(0.105, 0.105)
+texture_normal = ExtResource("3_d526j")
+
+[node name="Label" type="Label" parent="TextureButton" unique_id=740147484]
+layout_mode = 0
+offset_left = 314.2863
+offset_top = 419.0479
+offset_right = 1494.2863
+offset_bottom = 692.0479
+theme_override_font_sizes/font_size = 200
+text = "CONTINUAR"
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

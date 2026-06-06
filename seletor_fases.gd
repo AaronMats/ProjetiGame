@@ -3,7 +3,7 @@ extends Control
 
 func _on_texture_button_pressed() -> void:
 	# Muda a cena para a primeira fase
-	get_tree().change_scene_to_file("res://mundo.tscn")
+	get_tree().change_scene_to_file("res://tela_tutorial.tscn")
 
 
 func _on_texture_button_2_pressed() -> void:
