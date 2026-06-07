@@ -7,3 +7,7 @@ func _on_botao_jogar_pressed():
 func _on_botao_sair_pressed():
 	# Fecha o jogo
 	get_tree().quit()
+
+
+func _on_botao_creditos_pressed():
+	get_tree().change_scene_to_file("res://menu/creditos.tscn")

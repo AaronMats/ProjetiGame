@@ -1,7 +1,7 @@
 extends Node2D
 
 # --- VARIÁVEIS DO JOGO ---
-var total_objetos_fase = 3   
+var total_objetos_fase = 6   
 var objetos_encontrados = 0
 var total_cliques = 0
 var fase_encerrada = false
@@ -104,6 +104,17 @@ func _on_Chave3_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		objeto_clicado("Obj03")
 
+func _on_Chave4_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		objeto_clicado("Obj04")
+		
+func _on_Chave5_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		objeto_clicado("Obj05")
+		
+func _on_Chave6_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		objeto_clicado("Obj06")
 
 # --- SINAL DO BOTÃO TERMINAR FASE ---
 func _on_BotaoTerminar_pressed():
@@ -150,7 +161,7 @@ func criar_efeito_erro(posicao_do_clique):
 	var x_erro = Sprite2D.new()
 	x_erro.centered = true
 	x_erro.scale = Vector2(0.075, 0.075)
-	x_erro.texture = load("res://arts/X_vermelho_teste.png")
+	x_erro.texture = load("res://arts/botoes/ASSETS BOTÕES_20260607181147.png")
 	x_erro.z_index = 10
 	add_child(x_erro)
 	x_erro.global_position = posicao_do_clique

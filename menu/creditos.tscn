@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://btaan0srqi2fs"]
+
+[ext_resource type="Texture2D" uid="uid://b1b6vplray7wv" path="res://arts/Ceditos.png" id="1_3rl2b"]
+[ext_resource type="Script" uid="uid://bvvtwfoljaaqg" path="res://menu/creditos.gd" id="1_5crx5"]
+[ext_resource type="Texture2D" uid="uid://b4k1lqf3uvq55" path="res://arts/botoes/ASSETS BOTÕES_20260606190513.png" id="2_5crx5"]
+
+[node name="Creditos" type="Control" unique_id=2037975292]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5crx5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=84756980]
+position = Vector2(576, 324)
+texture = ExtResource("1_3rl2b")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=615514809]
+layout_mode = 0
+offset_left = 129.00002
+offset_top = 44.000004
+offset_right = 897.0
+offset_bottom = 812.0
+scale = Vector2(0.18, 0.18)
+texture_normal = ExtResource("2_5crx5")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

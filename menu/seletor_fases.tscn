@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://c4ig0um8dqwxu"]
 
-[ext_resource type="Script" uid="uid://0uod56oplu8o" path="res://seletor_fases.gd" id="1_flf7j"]
-[ext_resource type="Texture2D" uid="uid://doe8x6w6c5y00" path="res://arts/Fundo_menu_principal.png" id="2_ongcq"]
-[ext_resource type="Texture2D" uid="uid://cf6b48tnttdfr" path="res://arts/Botao01.png" id="3_uhuek"]
-[ext_resource type="Texture2D" uid="uid://b4k1lqf3uvq55" path="res://arts/botões/ASSETS BOTÕES_20260606190513.png" id="4_ongcq"]
+[ext_resource type="Script" uid="uid://0uod56oplu8o" path="res://menu/seletor_fases.gd" id="1_flf7j"]
+[ext_resource type="Texture2D" uid="uid://cedvqg2d04rlo" path="res://arts/menu/selecao_fases.png" id="2_ifesm"]
+[ext_resource type="Texture2D" uid="uid://fm0qv5ixmow6" path="res://arts/botoes/botao_fase1.png" id="3_ifesm"]
+[ext_resource type="Texture2D" uid="uid://d13g8j3k3knrm" path="res://arts/botoes/ASSETS BOTÕES_20260607181045.png" id="4_ifesm"]
+[ext_resource type="Texture2D" uid="uid://bn552hu2htdkc" path="res://arts/botoes/botao_fase1_focus.png" id="4_t6sef"]
+[ext_resource type="Texture2D" uid="uid://cy7mmkk46cu7u" path="res://arts/botoes/botao_fase2.png" id="5_gci0h"]
+[ext_resource type="Texture2D" uid="uid://dbojev7c24txp" path="res://arts/botoes/botao_fase2_focus.png" id="6_qc68h"]
 
 [node name="Control" type="Control" unique_id=2001532877]
 layout_mode = 3
@@ -25,45 +28,43 @@ offset_right = -1.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_ongcq")
+texture = ExtResource("2_ifesm")
 expand_mode = 1
-
-[node name="Label" type="Label" parent="." unique_id=999240901]
-layout_mode = 0
-offset_right = 1151.0
-offset_bottom = 76.0
-theme_override_font_sizes/font_size = 40
-text = "SELETOR DE FASES"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=1145823423]
 layout_mode = 0
-offset_left = 103.99999
-offset_top = 166.00002
-offset_right = 452.0
-offset_bottom = 387.0
-scale = Vector2(0.415, 0.415)
-texture_normal = ExtResource("3_uhuek")
+offset_left = 102.0
+offset_top = 323.0
+offset_right = 305.0
+offset_bottom = 441.0
+scale = Vector2(0.775, 0.775)
+texture_normal = ExtResource("3_ifesm")
+texture_pressed = ExtResource("4_t6sef")
+texture_hover = ExtResource("4_t6sef")
+texture_focused = ExtResource("4_t6sef")
 metadata/_edit_group_ = true
 
-[node name="Label" type="Label" parent="TextureButton" unique_id=1756261952]
+[node name="TextureButton2" type="TextureButton" parent="." unique_id=63886558]
 layout_mode = 0
-offset_right = 349.39755
-offset_bottom = 219.27713
-theme_override_font_sizes/font_size = 50
-text = "FASE 01"
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_left = 373.0
+offset_top = 323.0
+offset_right = 580.0
+offset_bottom = 446.0
+scale = Vector2(0.775, 0.775)
+texture_normal = ExtResource("5_gci0h")
+texture_pressed = ExtResource("6_qc68h")
+texture_hover = ExtResource("6_qc68h")
+texture_focused = ExtResource("6_qc68h")
+metadata/_edit_group_ = true
 
 [node name="botao_voltar" type="TextureButton" parent="." unique_id=1927912842]
 layout_mode = 0
-offset_left = 20.00003
-offset_top = 20.000015
-offset_right = 788.0
-offset_bottom = 788.0
-scale = Vector2(0.16, 0.16)
-texture_normal = ExtResource("4_ongcq")
+offset_left = 40.0
+offset_top = 219.99998
+offset_right = 808.0
+offset_bottom = 988.0
+scale = Vector2(0.095, 0.095)
+texture_normal = ExtResource("4_ifesm")
 metadata/_edit_group_ = true
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

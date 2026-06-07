@@ -1,9 +1,15 @@
 [gd_scene format=3 uid="uid://142m7px0e4w1"]
 
-[ext_resource type="Script" uid="uid://ctg5jekaumdg5" path="res://menu_principal.gd" id="1_ns3he"]
-[ext_resource type="Texture2D" uid="uid://doe8x6w6c5y00" path="res://arts/Fundo_menu_principal.png" id="2_fa1tu"]
-[ext_resource type="Texture2D" uid="uid://cf6b48tnttdfr" path="res://arts/Botao01.png" id="3_a6518"]
-[ext_resource type="Texture2D" uid="uid://qaaou0vyl64a" path="res://arts/Botao02.png" id="4_yxm4i"]
+[ext_resource type="Script" uid="uid://ctg5jekaumdg5" path="res://menu/menu_principal.gd" id="1_ns3he"]
+[ext_resource type="Texture2D" uid="uid://bcf5c5ds6oeug" path="res://arts/menu/MenuPrincipal.png" id="2_ucgvt"]
+[ext_resource type="Texture2D" uid="uid://dd6dhua7uji5v" path="res://arts/botoes/botao_iniciar_focus.png" id="3_ucgvt"]
+[ext_resource type="Texture2D" uid="uid://3an04w76wpdv" path="res://arts/botoes/botao_creditos.png" id="4_5peh6"]
+[ext_resource type="Texture2D" uid="uid://chaamon8t42la" path="res://arts/botoes/botao_creditos_focus.png" id="5_35p1k"]
+[ext_resource type="Texture2D" uid="uid://cmjhmu3m28nw5" path="res://arts/botoes/botao_sair.png" id="6_5u2e6"]
+[ext_resource type="Texture2D" uid="uid://cuqks3filnwxa" path="res://arts/botoes/botao_sair_focus.png" id="7_t1ba6"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qbxch"]
+load_path = "res://.godot/imported/botao_iniciar.png-ce12ef194e1055e9f0cd268f91013b13.ctex"
 
 [node name="MenuPrincipal" type="Control" unique_id=1613724425]
 layout_mode = 3
@@ -25,49 +31,49 @@ offset_right = -1.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_fa1tu")
+texture = ExtResource("2_ucgvt")
 expand_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=686242810]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -137.0
-offset_top = -122.0
-offset_right = 887.0
-offset_bottom = 1126.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.245, 0.245)
-size_flags_horizontal = 4
-size_flags_vertical = 4
-metadata/_edit_group_ = true
-
-[node name="BotaoJogar" type="TextureButton" parent="VBoxContainer" unique_id=94946896]
-layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("3_a6518")
-
-[node name="BotaoSair" type="TextureButton" parent="VBoxContainer" unique_id=577598517]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("4_yxm4i")
-
-[node name="Label" type="Label" parent="." unique_id=14726096]
+[node name="BotaoJogar" type="TextureButton" parent="." unique_id=94946896]
 layout_mode = 0
-offset_left = 56.0
-offset_top = 71.0
-offset_right = 393.0
-offset_bottom = 212.0
-theme_override_font_sizes/font_size = 50
-text = "Nome do jogo
-Projeti"
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_left = 240.0
+offset_top = 304.0
+offset_right = 1392.0
+offset_bottom = 952.0
+rotation = -0.0005381419
+scale = Vector2(0.12, 0.12)
+size_flags_horizontal = 4
+texture_normal = SubResource("CompressedTexture2D_qbxch")
+texture_pressed = ExtResource("3_ucgvt")
+texture_hover = ExtResource("3_ucgvt")
+texture_focused = ExtResource("3_ucgvt")
 
-[connection signal="pressed" from="VBoxContainer/BotaoJogar" to="." method="_on_botao_jogar_pressed"]
-[connection signal="pressed" from="VBoxContainer/BotaoSair" to="." method="_on_botao_sair_pressed"]
+[node name="BotaoCreditos" type="TextureButton" parent="." unique_id=2051950781]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 416.0
+offset_right = 1392.0
+offset_bottom = 1064.0
+scale = Vector2(0.12, 0.12)
+texture_normal = ExtResource("4_5peh6")
+texture_pressed = ExtResource("5_35p1k")
+texture_hover = ExtResource("5_35p1k")
+texture_focused = ExtResource("5_35p1k")
+
+[node name="BotaoSair" type="TextureButton" parent="." unique_id=577598517]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 528.00006
+offset_right = 1392.0
+offset_bottom = 1176.0
+scale = Vector2(0.12, 0.12)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("6_5u2e6")
+texture_pressed = ExtResource("7_t1ba6")
+texture_hover = ExtResource("7_t1ba6")
+texture_focused = ExtResource("7_t1ba6")
+
+[connection signal="pressed" from="BotaoJogar" to="." method="_on_botao_jogar_pressed"]
+[connection signal="pressed" from="BotaoCreditos" to="." method="_on_botao_creditos_pressed"]
+[connection signal="pressed" from="BotaoSair" to="." method="_on_botao_sair_pressed"]
