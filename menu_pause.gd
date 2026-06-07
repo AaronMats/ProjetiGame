@@ -1,12 +1,14 @@
 extends Control
 
+
+
 func _ready():
 	# O menu começa escondido quando a fase inicia
 	visible = false
 
 func _input(event):
 	# Abre ou fecha o pause ao apertar a tecla ESC ou clique no botão de pause se tiver
-	if event.is_action_pressed("ui_cancel"): # "ui_cancel" é a tecla ESC por padrão
+	if event.is_action_pressed("ui_cancel"):
 		alternar_pause()
 
 func alternar_pause():

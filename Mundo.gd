@@ -23,9 +23,12 @@ func _ready():
 	botao_terminar.visible = true
 	botao_teste.visible = false
 	botao_teste2.visible = false
-
+	botao_pausa.visible = true
 # --- DETECTOR DE CLIQUES GERAIS NO CENÁRIO ---
 func _input(event):
+	if event.is_action_pressed("ui_cancel"): # "ui_cancel" é a tecla ESC por padrão
+		$CanvasLayer/MenuPause.alternar_pause()
+	
 	# Verifica se a fase está encerrada
 	if fase_encerrada:
 		return 
