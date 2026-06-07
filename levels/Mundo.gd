@@ -138,10 +138,10 @@ func _on_BotaoTerminar_pressed():
 	botao_pausa.visible = false
 # --- FUNÇÕES PARA OS BOTÕES DE VOLTAR E PRÓXIMA FASE --- 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://seletor_fases.tscn")
+	get_tree().change_scene_to_file("res://menu/seletor_fases.tscn")
 	
 func _on_button_2_pressed() -> void:
-	get_tree().change_scene_to_file("res://Mundo.tscn")
+	get_tree().change_scene_to_file("res://levels/Mundo.tscn")
 	
 #Criando efeito de erro
 func criar_efeito_erro(posicao_do_clique):
