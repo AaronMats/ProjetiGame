@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cf6b48tnttdfr"
-path="res://.godot/imported/Botao01.png-d6e26a68f15ee3dfa90ab6f3074aa425.ctex"
+uid="uid://b1b6vplray7wv"
+path="res://.godot/imported/Creditos.png-16e0107a02fb4dfcd91875f4dc75d3da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arts/Botao01.png"
-dest_files=["res://.godot/imported/Botao01.png-d6e26a68f15ee3dfa90ab6f3074aa425.ctex"]
+source_file="res://arts/Creditos.png"
+dest_files=["res://.godot/imported/Creditos.png-16e0107a02fb4dfcd91875f4dc75d3da.ctex"]
 
 [params]
 
