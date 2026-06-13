@@ -38,24 +38,21 @@ func _input(event):
 			# Verifica se o botão terminar está visível E se o mouse está exatamente em cima dele
 			if botao_terminar.visible and botao_terminar.get_global_rect().has_point(event.global_position):
 				return 		
-			# TRAVA USANDO A CAIXA DE COLISÃO REAL
+			# Checando a posição do clique
 			var lista_objetos = get_tree().get_nodes_in_group("objetos_fase")
 			for obj in lista_objetos:
-				# Chamamos a nossa nova função passando o objeto e a posição do clique
 				if clicou_na_colisao(obj, event.global_position):
 					total_cliques += 1
 					label_cliques.text = "Cliques: " + str(total_cliques)
-					return # Se clicou na colisão de qualquer chave,
+					return 
+			# Checando se o clique foi pra terminar o jogo
 			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			# Verifica se o botão terminar está visível E se o mouse está exatamente em cima dele
 				if botao_pausa.get_global_rect().has_point(event.global_position):
 					return 		
-	# Contabilisando o clique errado
-	if event is InputEventMouseButton:
+		# Contabilisando o clique errado
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			total_cliques += 1
 			label_cliques.text = "Cliques: " + str(total_cliques)
-			# CHAMA O EFEITO VISUAL DO "X" passando a posição exata do clique
 			criar_efeito_erro(event.global_position)
 
 # --- FUNÇÃO PARA QUANDO ACHA UM OBJETo ---
@@ -143,7 +140,7 @@ func _on_BotaoTerminar_pressed():
 	label_final.text += "Pontuação Final: " + str(int(pontuacao)) + "%\n"
 	label_final.text += "Total de Cliques: " + str(total_cliques)
 	
-	# Deixa visível os botões de voltar e próxima fase
+	# Alternadi a visibilidade dos botões de voltar, próxima fase e pausa 
 	botao_teste.visible = true
 	botao_teste2.visible = true
 	botao_pausa.visible = false
@@ -154,10 +151,9 @@ func _on_button_pressed() -> void:
 func _on_button_2_pressed() -> void:
 	get_tree().change_scene_to_file("res://levels/Mundo.tscn")
 	
-#Criando efeito de erro
+#Efeito de erro
 func criar_efeito_erro(posicao_do_clique):
-	
-	#Cria um nó de Sprite2D
+	# Criando nó
 	var x_erro = Sprite2D.new()
 	x_erro.centered = true
 	x_erro.scale = Vector2(0.075, 0.075)
@@ -173,7 +169,7 @@ func criar_efeito_erro(posicao_do_clique):
 	x_erro.queue_free()
 	
 	
-	# Função que recebe o nó do objeto e a posição do clique,
+	# Função que verifica se o clique foi Correto
 func clicou_na_colisao(objeto: Node2D, posicao_do_clique: Vector2) -> bool:
 	# 1. Procura o nó de colisão dentro do objeto
 	var colisao = objeto.get_node_or_null("CollisionShape2D")
@@ -191,6 +187,6 @@ func clicou_na_colisao(objeto: Node2D, posicao_do_clique: Vector2) -> bool:
 		Vector2.ZERO
 	)
 
-
+# Função que ativa a tela de pause
 func _on_botao_pausa_tela_pressed():
 	$CanvasLayer/MenuPause.alternar_pause()
